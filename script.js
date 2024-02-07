@@ -6,16 +6,16 @@ async function getQuery() {
     const eldenData = eldenDataInput.value;
     eldenDataInput.value = '';
     const response = await fetch(`https://eldenring.fanapis.com/api/bosses?name=` + eldenData);
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
+    console.log("A",response);
+    let data = await response.json();
+    console.log("B",data);
     const bossCard = createBossCard(data);
     cardContainer.innerHTML += bossCard;
 }
 
 function createBossCard(data) {
     const bossCard = `
-    <div class="card" style="width: 18rem;" id="${data.id}">
+    <div class="card" style="width: 18rem;" id="balls">
   <img src="${data.image}" class="card-img-top" alt="${data.name}">
   <div class="card-body">
     <h5 class="card-title">${data.name}</h5>
